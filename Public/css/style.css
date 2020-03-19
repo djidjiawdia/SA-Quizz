@@ -1,0 +1,395 @@
+@import url('https://fonts.googleapis.com/css?family=Bebas+Neue|Open+Sans&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    background: linear-gradient(rgba(4, 36, 37, 0.7),rgba(4, 36, 37, 0.7)), url("../images/img-bg.jpg") center/cover no-repeat fixed;
+    font-family: 'Open Sans', Helvetica, sans-serif;
+    /* font-family: 'Bebas Neue', cursive; */
+}
+
+a{
+    text-decoration: none;
+}
+
+header{
+    height: 10vh;
+    background-color: #042425;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.logo{
+    position: absolute;
+    height: 90px;
+    padding: 10px 0 10px 30px;
+    left: 0;
+}
+
+header h1{
+    font-size: 2.5rem;
+    color: white;
+}
+
+.container{
+    width: 90%;
+    height: 90%;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+}
+
+.row{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.col-sm{
+    width: 30%;
+}
+
+.col-md{
+    width: 70%;
+}
+
+.card{
+    background-color: #F2F2F2;
+    border-radius: 3px;
+}
+
+.card-md{
+    width: 570px;
+}
+.card-lg{
+    width: 100%;
+}
+
+.card-header{
+    background-color: #51BFD0;
+    height: 70px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 3px 3px 0 0;
+    padding: 20px;
+    color: white;
+}
+
+.card-header a{
+    height: 40px;
+    width: 150px;
+    background-color: #14F7E7;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.25rem;
+    color: white;
+}
+
+.card-header h1{
+    text-transform: uppercase;
+}
+
+.card-header span{
+    font-size: larger;
+    font-weight: bold;
+}
+
+.card-body{
+    padding: 20px;
+}
+
+.form-c{
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group{
+    position: relative;
+    display: flex;
+    align-items: center;
+    margin-top: 30px;
+}
+
+.form-group a{
+    font-size: large;
+    margin-left: 25px;
+    color: #999999;
+    font-weight: bold;
+}
+
+.form-group img{
+    position: absolute;
+    right: 0;
+    height: 60px;
+    padding: 20px;
+}
+
+.form-control{
+    width: 100%;
+    height: 60px;
+    border-radius: 8px;
+    padding: 10px 60px 10px 20px;
+    color: #999999;
+    font-size: large;
+    font-weight: bold;
+    border: 1px solid #cdcdcd;
+}
+
+.bg-input{
+    background-color: #F0EEF0;
+}
+
+.btn{
+    border: 1px solid;
+    font-weight: bold;
+}
+
+.btn-lg{
+    height: 50px;
+    width: 160px;
+    border-radius: 8px;
+    font-size: large;
+}
+
+.btn-md{
+    height: 30px;
+    width: 110px;
+    border-radius: 3px;
+    font-size: large;
+}
+
+.btn-primary{
+    background-color: #51BFD0;
+    color: #F0EEF0;
+}
+
+.btn-secondary{
+    background-color: #999999;
+    color: #F0EEF0;
+}
+
+.btn-light{
+    background-color: #14F7E7;
+    color: #F0EEF0;
+}
+
+.inscription{
+    width: 100%;
+    background-color: white;
+    border-radius: 8px;
+    /* border: 1px solid #999999; */
+}
+
+.inscription-header{
+    padding: 10px 30px 0 30px;
+}
+
+.inscription-header h1{
+    font-size: 2rem;
+    text-transform: uppercase;
+    font-weight: bolder;
+    color: #464646;
+}
+
+.form-i{
+    margin-top: 20px;
+    border-top: 1.5px solid #999999;
+    padding: 0 30px 10px 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.form-group-i{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.form-label{
+    margin-bottom: 8px;
+}
+
+.form-group-avatar{
+    margin: 10px 0 10px 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.inputavatar{
+    display: block;
+}
+
+input[type='file']{
+    display: none;
+}
+.inputavatar label{
+    font-size: 1.5rem;
+    padding: 5px;
+}
+
+.form-i button{
+    height: 50px;
+    width: 160px;
+    margin-top: 10px;
+    font-size: 1.5rem;
+    background-color: #51BFD0;
+    border: none;
+    border-radius: 2px;
+}
+
+.avatar{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 30px;
+}
+
+.avatar img{
+    width: 210px;
+    height: 210px;
+    border-radius: 50%;
+    border: 4px solid #51BFD0;
+    padding: 5px;
+    margin-bottom: 10px;
+}
+
+.profil-card{
+    background-color: white;
+    border-radius: 12px 12px 5px 5px;
+    box-shadow: -1px 0 3px 1px rgba(0,0,0,0.3);
+}
+
+.profil-card-header{
+    background: linear-gradient(#F2F2F2,#51BFD0);
+    height: 170px;
+    border-radius: 12px 12px 0 0;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 30px;
+}
+
+.profil-card-header div{
+    margin-left: 20px;
+    color: white;
+    font-size: 1.25rem;
+}
+
+.profil-card-header div .nom{
+    margin-left: 30px;
+}
+
+.profil-card-body{
+    margin-top: 3px;
+}
+
+.admin-profil{
+    height: 130px;
+    width: 130px;
+    border-radius: 50%;
+    border: 1.5px solid #464646;
+    padding: 10px;
+}
+
+ul{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    list-style: none;
+}
+
+ul li{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    height: 60px;
+    padding: 5px 20px 5px 30px;
+}
+
+ul li:hover, .active{
+    background-color: #F2F2F2;
+    border-left: 4px solid #4DAF7B;
+}
+
+ul li a{
+    font-size: 1.2rem;
+    color: #8E8071;
+}
+
+.admin-page{
+    padding: 0 15px 0 15px;
+}
+
+.admin-card{
+    background-color: white;
+    border-radius: 10px;
+    padding: 20px;
+}
+
+.listeJ{
+    width: 70%;
+}
+
+.listeJ h1{
+    color: #8E8071;
+    font-style: italic;
+    text-align: center;
+}
+
+table{
+    width: 100%;
+    border: 1px solid #51BFD0;
+    border-radius: 5%;
+    padding: 10px;
+    color: #8E8071;
+}
+
+table thead td{
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+.nextPrev{
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    margin-top: 6px;
+}
+
+.creerQ{
+    width: 100%;
+}
+
+.creerQ h1{
+    color: #51BFD0;
+    text-transform: uppercase;
+}
+
+.formQ{
+    padding: 5px 10px 5px 10px;
+    border: 1px solid #51BFD0;
+}
+
+.form-group-q{
+    display: flex;
+    align-items: center;
+    margin-bottom: 16px;
+}
+
+.form-group-q label{
+    font-size: 1.2rem;
+    color: #6C6C6C;
+    font-weight: bold;
+}
