@@ -1,23 +1,30 @@
-<?php include_once '../../header.php'; ?>
+<?php
+    include_once '../../header.php'; 
+    if(empty($_SESSION['user'])){
+        header('location:/sa_quiz/');
+    }
+?>
 
 <div class="card card-lg">
     <div class="card-header">
         <h1>Créer et paramétrer vos quizz</h1>
-        <a href="#">Déconnexion</a>
+        <a href="/sa_quiz/controllers/userCtrl?deconnexion">Déconnexion</a>
     </div>
     <div class="card-body row">
         <div class="col-sm">
             <div class="profil-card">
                 <div class="profil-card-header">
-                    <img class="admin-profil" src="/sa_quiz/public/images/avatar.png" alt="Avatar">
+                    <div class="admin-profil">
+                        <img src="<?= $_SESSION['user']['profil'] ?>" alt="Avatar">
+                    </div>
                     <div>
-                        <h2 class="prenom">Prenom</h2>
-                        <h2 class="nom">NOM</h2>
+                        <h2 class="prenom"><?= ucfirst($_SESSION['user']['prenom']); ?></h2>
+                        <h2 class="nom"><?= strtoupper($_SESSION['user']['nom']); ?></h2>
                     </div>
                 </div>
                 <div class="profil-card-body">
                     <ul>
-                        <li class="active">
+                        <li>
                             <a class="nav-link" href="?page=listeQ">Liste Questions</a>
                             <img src="/sa_quiz/public/images/icones/ic-liste.png">
                         </li>
@@ -38,7 +45,7 @@
             </div>
         </div>
         <div class="admin-page col-md">
-    
+
         <?php
             if(isset($_GET['page'])){
                 switch($_GET['page']){

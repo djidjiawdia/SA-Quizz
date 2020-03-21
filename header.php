@@ -1,3 +1,4 @@
+<?php session_start(); ?>
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -8,7 +9,7 @@
 </head>
 <body>
     <header>
-        <img class="logo" src="/sa_quiz/public/images/logo-QuizzSa.png" alt="Logo SA">
+        <a  class="logo" href="/sa_quiz/"><img src="/sa_quiz/public/images/logo-QuizzSa.png" alt="Logo SA"></a>
         <h1>Le plaisir de jouer</h1>
     </header>
     <div class="container">    

@@ -1,0 +1,11 @@
+[
+    {
+        "prenom": "Djiadji",
+        "nom": "Diaw",
+        "login": "jahji",
+        "password": "test",
+        "profil": "/sa_quiz/uploads/jahji.jpg",
+        "score" : 0,
+        "role": "admin"
+    }
+]
