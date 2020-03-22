@@ -2,6 +2,8 @@
     include_once '../../header.php'; 
     if(empty($_SESSION['user'])){
         header('location:/sa_quiz/');
+    }else if($_SESSION['user']['role'] === "joueur"){
+        header('location:/sa_quiz/pages/joueur/interface_joueur.php');
     }
 ?>
 
@@ -16,8 +18,8 @@
                 <div class="profil-card-header">
                     <img class="icon-profil" src="<?= $_SESSION['user']['profil'] ?>" alt="Avatar">
                     <div>
-                        <h2 class="prenom"><?= ucfirst($_SESSION['user']['prenom']); ?></h2>
-                        <h2 class="nom"><?= strtoupper($_SESSION['user']['nom']); ?></h2>
+                        <h2 class="prenom"><?= $_SESSION['user']['prenom']; ?></h2>
+                        <h2 class="nom"><?= $_SESSION['user']['nom']; ?></h2>
                     </div>
                 </div>
                 <div class="profil-card-body">

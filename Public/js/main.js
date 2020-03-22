@@ -124,7 +124,8 @@ if(liEl != null){
         liEl.forEach(el => {
             el.className = '';
             el.children[1].src = el.children[1].src.replace("-active", "");
-            if(el.children[0].href === location.href){
+            link = location.href.split('&');
+            if(el.children[0].href === link[0]){
                 el.className = "active";
                 el.children[1].src = el.children[1].src.replace(".png", "-active.png");
             }

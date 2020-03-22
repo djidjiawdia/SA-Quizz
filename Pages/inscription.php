@@ -14,17 +14,22 @@
             <p><?= $title ?></p>
         </div>
         <form class="form-i" method="post" enctype="multipart/form-data" id="inscForm">
+            <?php
+                if($message != ""){
+                    echo '<p style="color:red;">'.$message.'</p>';
+                }
+            ?>
             <div class="form-group-i">
                 <label class="form-label" for="prenom">Prénom</label>
-                <input type="text" name="prenom" id="prenom" class="form-control" value="<?= $prenom ?>" placeholder="Ex: Abdoulaye">
+                <input type="text" name="prenom" id="prenom" class="form-control" placeholder="Ex: Abdoulaye">
             </div>
             <div class="form-group-i">
                 <label class="form-label" for="nom">Nom</label>
-                <input type="text" name="nom" id="nom" class="form-control"  value="<?= $nom ?>" placeholder="Ex: Diaw">
+                <input type="text" name="nom" id="nom" class="form-control"  placeholder="Ex: Diaw">
             </div>
             <div class="form-group-i">
                 <label class="form-label" for="login">Login</label>
-                <input type="text" name="login" id="login" class="form-control" value="<?= $login ?>" placeholder="Ex: jahji ">
+                <input type="text" name="login" id="login" class="form-control" placeholder="Ex: jahji ">
             </div>
             <div class="form-group-i">
                 <label class="form-label" for="password">Password</label>
@@ -43,11 +48,6 @@
             </div>
             <button type="submit" name="creerCompte" class="btn-primary">Créer compte</button>
         </form>
-        <?php
-            if($message != ""){
-                echo '<p style="color:red;">'.$message.'</p>';
-            }
-        ?>
     </div>
     <div class="col-sm">
         <div class="avatar">
