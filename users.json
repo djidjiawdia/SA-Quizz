@@ -1,11 +1,23 @@
 [
     {
-        "prenom": "Djiadji",
-        "nom": "Diaw",
-        "login": "jahji",
-        "password": "test",
-        "profil": "/sa_quiz/uploads/jahji.jpg",
-        "score" : 0,
-        "role": "admin"
+        "nom":"Diaw",
+        "prenom":"Djiadji",
+        "login":"jahjii",
+        "password":"Test1234",
+        "profil":"\/sa_quiz\/uploads\/jahjii.jpeg",
+        "score":0,
+        "role":"admin"
+    },
+    {
+        "nom":"Guiss\u00e9",
+        "prenom":"Isma\u00efla Mbaye",
+        "login":"coolblack",
+        "password":"Yassam94",
+        "profil":"\/sa_quiz\/uploads\/coolblack.jpg",
+        "score":0,
+        "role":"admin"
     }
+
+
+    
 ]

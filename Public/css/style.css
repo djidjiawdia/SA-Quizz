@@ -119,11 +119,18 @@ header h1{
 .form-group{
     position: relative;
     display: flex;
+    flex-direction: column;
     align-items: center;
     margin-top: 30px;
 }
 
-.form-group a{
+.form-group-btn{
+    display: flex;
+    align-items: center;
+    margin-top: 30px;
+}
+
+.form-group-btn a{
     font-size: large;
     margin-left: 25px;
     color: #999999;
@@ -298,18 +305,13 @@ input[type='file']{
     margin-top: 3px;
 }
 
-.admin-profil{
-    height: 130px;
-    width: 130px;
-    display: inline-block;
-    position: relative;
-    overflow: hidden;
+.icon-profil {
+    padding: 10px;
+    height: 135px;
+    width: 135px;
+    line-height: 135px;
+    border: 2px solid #8E8071;
     border-radius: 50%;
-}
-
-.admin-profil img{
-    width: 100%;
-    height: 100%;
 }
 
 ul{
@@ -488,6 +490,11 @@ table thead td{
 .input-error{
     border: 1px solid red;
 }
+
+.bg-error{
+    background-color: red;
+}
+
 .input-error::placeholder{
     color: red;
     font-size: 1rem;

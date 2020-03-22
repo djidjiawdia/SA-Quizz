@@ -35,7 +35,7 @@
                 <img src="public/images/icones/ic-password.png" alt="ic-password">
                 <input type="password" class="form-control bg-input" name="passwordConn" placeholder="Password">
             </div>
-            <div class="form-group">
+            <div class="form-group-btn">
                 <button type="submit" class="btn btn-lg btn-primary">Connexion</button>
                 <a href="/sa_quiz/pages/joueur/creer_joueur.php">S'inscrire pour jouer?</a>
             </div>

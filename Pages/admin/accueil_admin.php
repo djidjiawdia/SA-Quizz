@@ -8,15 +8,13 @@
 <div class="card card-lg">
     <div class="card-header">
         <h1>Créer et paramétrer vos quizz</h1>
-        <a href="/sa_quiz/controllers/userCtrl?deconnexion">Déconnexion</a>
+        <a href="/sa_quiz/controllers/userCtrl?deconnexion" id="deconnexion">Déconnexion</a>
     </div>
     <div class="card-body row">
         <div class="col-sm">
             <div class="profil-card">
                 <div class="profil-card-header">
-                    <div class="admin-profil">
-                        <img src="<?= $_SESSION['user']['profil'] ?>" alt="Avatar">
-                    </div>
+                    <img class="icon-profil" src="<?= $_SESSION['user']['profil'] ?>" alt="Avatar">
                     <div>
                         <h2 class="prenom"><?= ucfirst($_SESSION['user']['prenom']); ?></h2>
                         <h2 class="nom"><?= strtoupper($_SESSION['user']['nom']); ?></h2>
