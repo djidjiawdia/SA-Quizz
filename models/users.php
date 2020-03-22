@@ -32,3 +32,14 @@
         }
 
     }
+
+    function getPlayers(){
+        global $users;
+        $players = [];
+        foreach($users as $u){
+            if($u['role'] === "joueur"){
+                $players[] = $u;
+            }
+        }
+        return $players;
+    }

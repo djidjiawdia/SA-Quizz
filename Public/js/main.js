@@ -159,3 +159,55 @@ if(inscFormEl != null){
         }
     });
 }
+
+/************************ LISTE JOUEURS PAGINATION ************************/
+const tabEl = document.getElementById("listeJ");
+if(tabEl != null){
+
+    const nbrParPage = 15;
+    let currentPage = 1;
+    
+    const btnPrev = document.getElementById("prev");
+    const btnNext = document.getElementById("next");
+    
+    const rows = (tabEl.getElementsByTagName("tbody"))[0].rows;
+    const nbrVal = rows.length;
+    const nbrPage = Math.ceil(nbrVal / nbrParPage);
+    
+    showCurrent = (current) => {
+        hidePagi(rows);
+        for(i=(current-1)*nbrParPage; i<current*nbrParPage; i++){
+            rows[i].style.display = "";
+        }
+        if(current <= 1){
+            btnPrev.style.display = "none";
+        }else{
+            btnPrev.style.display = "";
+        }
+        if(current >= nbrPage){
+            btnNext.style.display = "none";
+        }else{
+            btnNext.style.display = "";
+        }
+    }
+    
+    btnNext.addEventListener('click', () => {
+        currentPage++;
+        showCurrent(currentPage);
+    })
+    
+    btnPrev.addEventListener('click', () => {
+        currentPage--;
+        showCurrent(currentPage);
+    })
+
+    
+    hidePagi = (tabs) =>{
+        for(i=0; i<tabs.length; i++){
+            tabs[i].style.display = "none";
+        }
+    }
+
+    showCurrent(currentPage);
+}
+
