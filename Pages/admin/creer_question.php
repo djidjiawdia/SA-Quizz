@@ -1,6 +1,19 @@
+<?php
+    include_once '../../models/questions.php';
+
+    if(isset($_POST) && !empty($_POST)){
+        if(saveQuestion($_POST)){
+            header('location:/sa_quiz/pages/admin/accueil_admin.php?page=listeQ');
+        }else{
+            header('location:/sa_quiz/pages/admin/acceuil_admin.php?page=creerQ&error');
+        }
+    }
+
+?>
+
 <div class="admin-card creerQ">
     <h1>Paramétrer votre question</h1>
-    <form class="border" method="post">
+    <form class="border" method="post" id="questForm">
         <div class="form-group-q row">
             <div class="col-sm">
                 <label for="question">Questions</label>
@@ -28,11 +41,11 @@
                     <option value="checkbox">Choix multiple</option>
                     <option value="texte">Choix texte</option>
                 </select>
-                <button class="addInput">+</button>
+                <div id="addInput" class="addInput">+</div>
             </div>
         </div>
         <div class="response" id="resp">
-            <div class="form-group-q row">
+            <!-- <div class="form-group-q row">
                 <div class="col-sm">
                     <label for="reponse1">Réponse 1</label>
                 </div>
@@ -41,10 +54,10 @@
                     <div class="typeChoix">
                         <input type="checkbox" name="repC" id="repC">
                         <input type="radio" name="repC" id="repC">
-                        <img src="/sa_quiz/public/images/icones/ic-supprimer">
+                        <img src="/sa_quiz/public/images/icones/ic-supprimer.png">
                     </div>
                 </div>
-            </div>
+            </div> -->
         </div>
         <div class="enregistrer">
             <button class="btn btn-md btn-light">Enregistrer</button>

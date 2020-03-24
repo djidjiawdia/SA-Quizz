@@ -162,6 +162,7 @@ header h1{
 .btn{
     border: 1px solid;
     font-weight: bold;
+    cursor: pointer;
 }
 
 .btn-lg{
@@ -461,6 +462,11 @@ table thead td{
     align-items: center;
 }
 
+input:focus, textarea:focus, select:focus {
+    border: 1px solid #51BFD0;
+    outline: none;
+}
+
 .typeChoix{
     width: 20%;
     display: flex;
@@ -471,6 +477,10 @@ table thead td{
 .typeChoix input{
     width: 25px;
     height: 25px;
+}
+
+.typeChoix input:checked{
+    background: #51BFD0;
 }
 
 .typeChoix img{
@@ -498,9 +508,15 @@ table thead td{
 }
 
 .addInput{
+    text-align: center;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    margin-left: 5px;
     width: 45px;
     height: 45px;
-    font-size: 2.5rem;
+    font-size: 3rem;
     font-weight: bold;
     color: white;
     border: none;
@@ -527,3 +543,6 @@ table thead td{
     font-size: 1rem;
     font-weight: 400;
 }
+
+
+
