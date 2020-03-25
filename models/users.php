@@ -1,10 +1,13 @@
 <?php
 
-    $fetchJson = file_get_contents(dirname(__DIR__)."/users.json");
-    $users = json_decode($fetchJson, true);
+
+    function getUsers(){
+        $fetchJson = file_get_contents(dirname(__DIR__)."/users.json");
+        return json_decode($fetchJson, true);
+    }
 
     function searchLogin($login){
-        global $users;
+        $users = getUsers();
         foreach($users as $u){
             if(strtolower(trim($login)) === strtolower($u['login'])){
                 return $u;
@@ -14,7 +17,7 @@
     }
 
     function saveUser($nom, $prenom, $login, $password, $profil, $role){
-        global $users;
+        $users = getUsers();
         $users[] = [
             "nom" => $nom,
             "prenom" => $prenom,

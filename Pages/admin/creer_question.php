@@ -1,19 +1,6 @@
-<?php
-    include_once '../../models/questions.php';
-
-    if(isset($_POST) && !empty($_POST)){
-        if(saveQuestion($_POST)){
-            header('location:/sa_quiz/pages/admin/accueil_admin.php?page=listeQ');
-        }else{
-            header('location:/sa_quiz/pages/admin/acceuil_admin.php?page=creerQ&error');
-        }
-    }
-
-?>
-
 <div class="admin-card creerQ">
     <h1>Paramétrer votre question</h1>
-    <form class="border" method="post" id="questForm">
+    <form action="/sa_quiz/controllers/qstCtrl.php" class="border border-blue" method="post" id="questForm">
         <div class="form-group-q row">
             <div class="col-sm">
                 <label for="question">Questions</label>

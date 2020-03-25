@@ -162,13 +162,11 @@ if(inscFormEl != null){
 
 /************************ LISTE JOUEURS PAGINATION ************************/
 const tabEl = document.getElementById("listeJ");
+const btnPrev = document.getElementById("prev");
+const btnNext = document.getElementById("next");
 if(tabEl != null){
-    
     const nbrParPage = 15;
     let currentPage = 1;
-    
-    const btnPrev = document.getElementById("prev");
-    const btnNext = document.getElementById("next");
     
     const rows = (tabEl.getElementsByTagName("tbody"))[0].rows;
     const nbrVal = rows.length;
@@ -177,7 +175,11 @@ if(tabEl != null){
     showCurrent = (current) => {
         hidePagi(rows);
         for(i=(current-1)*nbrParPage; i<current*nbrParPage; i++){
-            rows[i].style.display = "";
+            if(i === rows.length){
+                break;
+            }else{
+                rows[i].style.display = "";
+            }
         }
         if(current <= 1){
             btnPrev.style.display = "none";
@@ -213,97 +215,96 @@ if(tabEl != null){
 
 /************************ QUESTION FORM VALIDATION ************************/
 const questForm = document.getElementById('questForm')
-const addInput = questForm.querySelector('#addInput');
-// const removeInput = 
-const respContent = document.getElementById('resp');
-const typeRep = questForm.querySelector('#typeRep');
-
-ajouterInput = () => {
-    const numRep = respContent.children.length+1;
-    if(numRep < 5){
-        addInput.style.display = 'flex';
-        const div1 = document.createElement('div');
-        div1.setAttribute('class', 'form-group-q row');
-        
-        const divLabel = document.createElement('div');
-        divLabel.setAttribute('class', 'col-sm');
-        const label = document.createElement('label');
-        label.setAttribute('for', `reponse${numRep}`);
-        label.innerHTML = `Reponse ${numRep}`
-        divLabel.append(label);
-        
-        const divInput = document.createElement('div');
-        divInput.setAttribute('class', 'col-md input-group');
-        const input = document.createElement('input');
-        input.setAttribute('type', 'text');
-        input.setAttribute('class', 'rep-input bg-input');
-        input.setAttribute('id', `reponse${numRep}`);
-        input.setAttribute('name', `reponse${numRep}`);
-        const divC = document.createElement('div');
-        divC.setAttribute('class', 'typeChoix');
-        if(typeRep.value !== 'texte'){
-            const inputC = document.createElement('input');
-            if(typeRep.value === "checkbox"){
-                inputC.setAttribute('type', 'checkbox');
-            }
-            
-            if(typeRep.value === "radio"){
-                inputC.setAttribute('type', 'radio');
-            }
-            
-            inputC.setAttribute('name', 'repC[]');
-            inputC.setAttribute('value', `reponse${numRep}`)
-            divC.append(inputC);
-
-            const img = document.createElement('img');
-            img.setAttribute('src', '/sa_quiz/public/images/icones/ic-supprimer.png');
-            divC.append(img);
-        }
-        divInput.append(input);
-        
-        divInput.append(divC);
-        
-        div1.append(divLabel);
-        div1.append(divInput);
-        respContent.append(div1);
-    }else{
-        addInput.style.display = "none";
-    }
-}
-
-addInput.addEventListener('click', () => {
-    ajouterInput();
-    if(respContent.children.length > 1){
-        if(questForm.querySelector('p')){
-            questForm.removeChild(questForm.querySelector('p'));
-        }
-    };
-});
-
-typeRep.addEventListener('change', e => {
-    respContent.innerHTML = "";
-    addInput.style.display = "";
-    ajouterInput();
-    if(e.target.value === 'radio'){
-        const el = respContent.querySelectorAll('input[type="checkbox"]');
-        el.forEach(x => {
-            x.parentNode.removeChild(x);
-        });
-    }else if(e.target.value === 'checkbox'){
-        const el = respContent.querySelectorAll('input[type="radio"]');
-        el.forEach(x => {
-            x.parentNode.removeChild(x);
-        });
-    }else if(e.target.value === 'texte'){
-        const el = respContent.querySelectorAll('.typeChoix');
-        el.forEach(x => {
-            x.parentNode.removeChild(x);
-        });
-        addInput.style.display = "none";
-    }
-})
 
 if(questForm != null){
+    const addInput = questForm.querySelector('#addInput');
+    const respContent = document.getElementById('resp');
+    const typeRep = questForm.querySelector('#typeRep');
+    
+    ajouterInput = () => {
+        const numRep = respContent.children.length+1;
+        if(numRep < 5){
+            addInput.style.display = 'flex';
+            const div1 = document.createElement('div');
+            div1.setAttribute('class', 'form-group-q row');
+            
+            const divLabel = document.createElement('div');
+            divLabel.setAttribute('class', 'col-sm');
+            const label = document.createElement('label');
+            label.setAttribute('for', `reponse${numRep}`);
+            label.innerHTML = `Reponse ${numRep}`
+            divLabel.append(label);
+            
+            const divInput = document.createElement('div');
+            divInput.setAttribute('class', 'col-md input-group');
+            const input = document.createElement('input');
+            input.setAttribute('type', 'text');
+            input.setAttribute('class', 'rep-input bg-input');
+            input.setAttribute('id', `reponse${numRep}`);
+            input.setAttribute('name', `reponse${numRep}`);
+            const divC = document.createElement('div');
+            divC.setAttribute('class', 'typeChoix');
+            if(typeRep.value !== 'texte'){
+                const inputC = document.createElement('input');
+                if(typeRep.value === "checkbox"){
+                    inputC.setAttribute('type', 'checkbox');
+                }
+                
+                if(typeRep.value === "radio"){
+                    inputC.setAttribute('type', 'radio');
+                }
+                
+                inputC.setAttribute('name', 'repC[]');
+                inputC.setAttribute('value', `reponse${numRep}`)
+                divC.append(inputC);
+                
+                const img = document.createElement('img');
+                img.setAttribute('src', '/sa_quiz/public/images/icones/ic-supprimer.png');
+                divC.append(img);
+            }
+            divInput.append(input);
+            
+            divInput.append(divC);
+            
+            div1.append(divLabel);
+            div1.append(divInput);
+            respContent.append(div1);
+        }else{
+            addInput.style.display = "none";
+        }
+    }
+    
+    addInput.addEventListener('click', () => {
+        ajouterInput();
+        if(respContent.children.length > 1){
+            if(questForm.querySelector('p')){
+                questForm.removeChild(questForm.querySelector('p'));
+            }
+        };
+    });
+    
+    typeRep.addEventListener('change', e => {
+        respContent.innerHTML = "";
+        addInput.style.display = "";
+        ajouterInput();
+        if(e.target.value === 'radio'){
+            const el = respContent.querySelectorAll('input[type="checkbox"]');
+            el.forEach(x => {
+                x.parentNode.removeChild(x);
+            });
+        }else if(e.target.value === 'checkbox'){
+            const el = respContent.querySelectorAll('input[type="radio"]');
+            el.forEach(x => {
+                x.parentNode.removeChild(x);
+            });
+        }else if(e.target.value === 'texte'){
+            const el = respContent.querySelectorAll('.typeChoix');
+            el.forEach(x => {
+                x.parentNode.removeChild(x);
+            });
+            addInput.style.display = "none";
+        }
+    })
     questForm.addEventListener('click', () => {
         const suppEl = questForm.querySelectorAll('img');
         suppEl.forEach(el => {
@@ -341,14 +342,16 @@ if(questForm != null){
             }
         }else if(typeRep.value === 'checkbox'){
                 if(selectEl.length > 1){
-                    questForm.removeChild(questForm.querySelector('p'));
+                    if(questForm.querySelector('p')){
+                        questForm.removeChild(questForm.querySelector('p'));
+                    }
                 }
-        }
-    })
-    
-    questForm.addEventListener('submit', e => {
-        e.preventDefault();
-        if(questForm.querySelector('p')){
+            }
+        })
+        
+        questForm.addEventListener('submit', e => {
+            e.preventDefault();
+            if(questForm.querySelector('p')){
             questForm.removeChild(questForm.querySelector('p'));
         }
         let validQuest = true;
@@ -356,7 +359,7 @@ if(questForm != null){
         const inputEl = e.target.querySelectorAll('input');
         const textArea = e.target.querySelector('textarea');
         const selectEl = e.target.querySelectorAll(`input[type="${typeRep.value}"]:checked`);
-
+        
         if(textArea.value == ''){
             textArea.style.borderRight = "1px solid red";
             validQuest = false;
@@ -401,4 +404,81 @@ if(questForm != null){
         
     })
 }
+
+/************************ NOMBRE QUESTION FORM VALIDATION ************************/
+const nbrQuestForm = document.getElementById('nbrQuestForm');
+
+if(nbrQuestForm != null){
+    const inputNbr = nbrQuestForm.querySelector('input');
+    
+    nbrQuestForm.addEventListener('change', () => {
+        if(inputNbr.value != '' && inputNbr.value >= 5){
+            inputNbr.style.border = "";
+        }
+    })
+    
+    nbrQuestForm.addEventListener('submit', e => {
+        e.preventDefault();
+        if(inputNbr.value === '' || inputNbr.value < 5){
+            inputNbr.style.border = "1px solid red";
+        }else{
+            nbrQuestForm.submit();
+        }
+    })
+
+}
+
+/************************ LISTE QUESTIONS PAGINATION ************************/
+const listeQ = document.getElementById('listeQ');
+
+if(listeQ != null){
+    const nbrParPage = nbrQuestForm.querySelector('input').value;
+    let currentPage = 1;
+    
+    const elts = listeQ.children;
+    const nbrVal = elts.length;
+    const nbrPage = Math.ceil(nbrVal / nbrParPage);
+    
+    showCurrent = (current) => {
+        hidePagi(elts);
+        for(i=(current-1)*nbrParPage; i<current*nbrParPage; i++){
+            if(i === elts.length){
+                break;
+            }else{
+                elts[i].style.display = "";
+            }
+        }
+        if(current <= 1){
+            btnPrev.style.display = "none";
+        }else{
+            btnPrev.style.display = "";
+        }
+        if(current >= nbrPage){
+            btnNext.style.display = "none";
+        }else{
+            btnNext.style.display = "";
+        }
+    }
+    
+    btnNext.addEventListener('click', () => {
+        currentPage++;
+        showCurrent(currentPage);
+    })
+    
+    btnPrev.addEventListener('click', () => {
+        currentPage--;
+        showCurrent(currentPage);
+    })
+    
+    
+    hidePagi = (tabs) =>{
+        for(i=0; i<tabs.length; i++){
+            tabs[i].style.display = "none";
+        }
+    }
+    
+    showCurrent(currentPage);
+}
+
+
 

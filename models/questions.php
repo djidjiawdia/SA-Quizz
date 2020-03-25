@@ -1,10 +1,12 @@
 <?php
 
-    $fetchJson = file_get_contents(dirname(__DIR__)."/questions.json");
-    $questions = json_decode($fetchJson, true);
+    function getQuestions(){
+        $fetchJson = file_get_contents(dirname(__DIR__)."/questions.json");
+        return json_decode($fetchJson, true);
+    }
 
     function saveQuestion($post){
-        global $questions;
+        $questions = getQuestions();
 
         $questions[] = $post;
 
