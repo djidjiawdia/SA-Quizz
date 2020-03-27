@@ -352,7 +352,7 @@ input[type='file']{
     align-items: center;
 }
 
-ul{
+nav{
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -460,7 +460,7 @@ table thead td{
     color: #6C6C6C;
     font-weight: bold;
 }
-.form-group-q textarea{
+.form-textarea{
     width: 100%;
     height: 90px;
     padding: 10px 5px 10px 10px;
@@ -619,12 +619,17 @@ input:focus, textarea:focus, select:focus {
     align-items: center;
 }
 
-.resp-group input{
+.listeQ-Choix{
     width: 15px;
     height: 15px;
 }
 
-.resp-group .respText{
+.interface-Choix{
+    width: 30px;
+    height: 30px;
+}
+
+.respText{
     width: 420px;
     height: 40px;
     font-weight: bold;
@@ -632,9 +637,95 @@ input:focus, textarea:focus, select:focus {
     padding: 10px;
 }
 
-.resp-group label{
+.listeQ-label{
     margin-left: 10px;
     font-size: 1.2rem;
     font-weight: bold;
 }
 
+.interface-label{
+    margin-left: 10px;
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+.interface-joueur{
+    background: white;
+    border-radius: 12px;
+    padding: 6px;
+}
+
+.interfaceForm{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.interface-input{
+    display: flex;
+    align-items: flex-end;
+    flex-direction: column;
+}
+
+.interface-txtarea{
+    text-align: center;
+    margin-bottom: 10px;
+    border-bottom: 1px solid #51BFD0;
+}
+
+.interface-resp{
+    display: flex;
+    flex-direction: column;
+    margin: 25px 10px 40px 20px;
+}
+
+.interface-pts{
+    width: 60px;
+    height: 35px;
+    text-align: center;
+    font-size: 1rem;
+    border: none;
+    border-right: 1px solid #51BFD0;
+    border-bottom: 1px solid #51BFD0;
+}
+
+.interface-btns{
+    display: flex;
+    justify-content: space-between;
+}
+
+.tabInterface{
+    display: none;
+}
+
+.result{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.tab-score{
+    display: flex;
+    flex-direction: column;
+    /* justify-content: center; */
+    /* align-items: center; */
+    margin: 10px;
+}
+
+.menu-tab-score{
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.score-body{
+    box-shadow: -1px 0 3px 1px rgba(0,0,0,0.3);
+}
+
+.btn-score{
+    width: 50%;
+    height: 50px;
+    background: none;
+    border: none;
+}

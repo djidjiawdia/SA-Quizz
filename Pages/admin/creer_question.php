@@ -6,7 +6,7 @@
                 <label for="question">Questions</label>
             </div>
             <div class="col-md">
-                <textarea class="bg-input" name="question" id="question"></textarea>
+                <textarea class="form-textarea bg-input" name="question" id="question"></textarea>
             </div>
         </div>
         <div class="form-group-q row">

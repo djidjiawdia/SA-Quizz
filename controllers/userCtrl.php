@@ -12,6 +12,7 @@ if(isset($_POST['loginConn']) && isset($_POST['passwordConn'])){
             $_SESSION['user'] = [
                 "nom" => $user["nom"],
                 "prenom" => $user["prenom"],
+                "login" => $user["login"],
                 "role" => $user["role"],
                 "profil" => $user["profil"],
                 "score" => $user["score"]

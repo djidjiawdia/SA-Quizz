@@ -36,8 +36,24 @@
 
     }
 
+    function changeScore($login, $score){
+        $newTabusers = [];
+        $users = getUsers();
+        foreach($users as $u){
+            if(strtolower(trim($login)) === strtolower($u['login'])){
+                $u['score'] = $score;
+            }
+            $newTabusers[] = $u; 
+        }
+        if(file_put_contents(dirname(__DIR__)."/users.json", json_encode($newTabusers))){
+            return true;
+        }else{
+            return false;
+        }
+    }
+
     function getPlayers(){
-        global $users;
+        $users = getUsers();
         $players = [];
         foreach($users as $u){
             if($u['role'] === "joueur"){

@@ -3,8 +3,10 @@
 
     $questions = getQuestions();
 
+    $nbrQ = getNbrQuestion();
+
     if(isset($_POST) && !empty($_POST)){
-        setcookie("nbrQuest", (int)$_POST['nbrQuest'], time()+360*24*3600);
+        saveNbrQuest($_POST);
     }
     
 
@@ -14,27 +16,24 @@
     <div class="card-body card-lg">
         <form method="post" class="nbrQuestF" id="nbrQuestForm">
             <label for="nbrQuest">Nombre de question/jeu</label>
-            <input type="text" name="nbrQuest" id="nbrQuest" value="<?= @$_COOKIE['nbrQuest']; ?>">
+            <input type="text" name="nbrQuest" id="nbrQuest" value="<?= @$nbrQ['nbrQuest']; ?>">
             <button class="btn" type="submit">OK</button>
         </form>
         <div class="border border-listeQ" id="listeQ">
             <?php foreach($questions as $k => $q): ?>
-            <div class="quest-group">
+            <div class="quest-group tab">
                 <h3><?= ($k+1).'. '.$q['question'] ?></h3>
                 <div class="responses">
-                    <?php for($i=1; true; $i++){
-                        if(isset($q["reponse{$i}"])){ ?>
-                            <div class="resp-group">
-                                <?php if($q['typeRep'] === "texte"){ ?>
-                                    <input class="respText" type="text" readonly>
-                                <?php }else{ ?>
-                                    <input type="<?= $q['typeRep'] ?>" disabled>
-                                    <label><?= htmlentities($q["reponse{$i}"], ENT_QUOTES) ?></label>
-                                <?php } ?>
-                            </div>
-                        <?php }else{break;
-                        }
-                    } ?>
+                    <?php foreach($q['reponse'] as $rep): ?>
+                        <div class="resp-group">
+                            <?php if($q['typeRep'] === "texte"){ ?>
+                                <input class="respText" type="text" readonly>
+                            <?php }else{ ?>
+                                <input class="listeQ-Choix" type="<?= $q['typeRep'] ?>" disabled>
+                                <label class="listeQ-label"><?= htmlentities($rep, ENT_QUOTES) ?></label>
+                            <?php } ?>
+                        </div>
+                    <?php endforeach; ?>
                 </div>
             </div>
             <?php endforeach; ?>

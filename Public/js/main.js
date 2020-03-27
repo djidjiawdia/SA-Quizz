@@ -241,7 +241,7 @@ if(questForm != null){
             input.setAttribute('type', 'text');
             input.setAttribute('class', 'rep-input bg-input');
             input.setAttribute('id', `reponse${numRep}`);
-            input.setAttribute('name', `reponse${numRep}`);
+            input.setAttribute('name', 'reponse[]');
             const divC = document.createElement('div');
             divC.setAttribute('class', 'typeChoix');
             if(typeRep.value !== 'texte'){
@@ -255,7 +255,7 @@ if(questForm != null){
                 }
                 
                 inputC.setAttribute('name', 'repC[]');
-                inputC.setAttribute('value', `reponse${numRep}`)
+                inputC.setAttribute('value', numRep-1);
                 divC.append(inputC);
                 
                 const img = document.createElement('img');
@@ -430,6 +430,11 @@ if(nbrQuestForm != null){
 
 /************************ LISTE QUESTIONS PAGINATION ************************/
 const listeQ = document.getElementById('listeQ');
+hidePagi = (tabs) =>{
+    for(i=0; i<tabs.length; i++){
+        tabs[i].style.display = "none";
+    }
+}
 
 if(listeQ != null){
     const nbrParPage = nbrQuestForm.querySelector('input').value;
@@ -450,11 +455,14 @@ if(listeQ != null){
         }
         if(current <= 1){
             btnPrev.style.display = "none";
+            btnPrev.parentElement.style.justifyContent = "flex-end";
         }else{
             btnPrev.style.display = "";
         }
         if(current >= nbrPage){
             btnNext.style.display = "none";
+            btnNext.parentElement.style.justifyContent = "flex-start";
+            
         }else{
             btnNext.style.display = "";
         }
@@ -471,14 +479,104 @@ if(listeQ != null){
     })
     
     
-    hidePagi = (tabs) =>{
-        for(i=0; i<tabs.length; i++){
-            tabs[i].style.display = "none";
-        }
-    }
     
     showCurrent(currentPage);
 }
 
+/************************ INTERFACE QUESTIONS PAGINATION ************************/
+const interfaceForm = document.getElementById("interfaceForm");
+let score = 0;
+if(interfaceForm != null){
+    let currentTab = 0;
+    let check = true;
+    const tabEls = interfaceForm.querySelectorAll('.tabInterface');
 
+    interfaceForm.addEventListener('submit', e => {
+        e.preventDefault();
+        if(currentTab >= tabEls.length){
+            document.cookie = "score="+score;
+            location.replace("/sa_quiz/pages/joueur/interface_joueur.php?terminer");
+
+        }
+    })
+
+    showCurrent = (current) => {
+        tabEls[current].style.display = 'block';
+
+        if(current == 0){
+            btnPrev.style.display = 'none';
+            btnPrev.parentElement.style.justifyContent = "flex-end";
+        }else{
+            btnPrev.parentElement.style.justifyContent = "space-between";
+            btnPrev.style.display = '';
+        }
+        if(current == (tabEls.length - 1)){
+            btnNext.innerText = 'Terminer';
+            btnNext.setAttribute('name', 'terminer');
+            btnNext.setAttribute('type', 'submit');
+        }else{
+            btnNext.innerHTML = 'Suivant';
+        }
+    }
+
+    btnNext.addEventListener('click', () => {
+        tabEls[currentTab].style.display = 'none';
+        if(tabs[currentTab].typeRep === 'texte'){
+            disabled = tabEls[currentTab].querySelector('input[id=repText]').disabled;
+        }else{
+            disabled = tabEls[currentTab].querySelector('input[id=resp]').disabled;
+        }
+        if(check && !disabled){
+            if(verifierRep()){
+                score += parseInt(tabs[currentTab].nbrPoints);
+            }
+        }
+        updateForm(currentTab);
+        console.log(score);
+        currentTab++;
+        check = true;
+        showCurrent(currentTab);
+    });
+
+    btnPrev.addEventListener('click', () => {
+        check = false;
+        tabEls[currentTab].style.display = '';
+        currentTab--;
+        showCurrent(currentTab);
+    });
+
+    verifierRep = () => {
+        // This function deals with validation of the form fields
+        const inputEl = tabEls[currentTab].querySelectorAll('input[id=resp]:checked');
+        const inputTextEl = tabEls[currentTab].querySelectorAll('input[id=repText]');
+        // Verifier si les réponses sont identiques
+        if((tabs[currentTab]).typeRep === 'texte'){
+            return tabs[currentTab].reponse[0].toLowerCase() == inputTextEl[0].value.toLowerCase();
+        }else{
+            let checkboxesChecked = [];
+            for (var i=0; i<inputEl.length; i++){
+                if (inputEl[i].checked) {
+                   checkboxesChecked.push(inputEl[i].value);
+                }
+            }
+            return tabs[currentTab].repC.join() == checkboxesChecked.join();
+        }
+        
+    }
+
+    updateForm = (n) => {
+        const inputEl = tabEls[n].querySelectorAll('#resp');
+        const inputTextEl = tabEls[currentTab].querySelector('input[id=repText]');
+        if((tabs[currentTab]).typeRep === 'texte'){
+            inputTextEl.setAttribute('disabled', '');
+        }else{
+            for (i = 0; i < inputEl.length; i++) {
+                inputEl[i].setAttribute('disabled', '');
+            }
+        }
+    }
+
+    showCurrent(currentTab);
+
+}
 
