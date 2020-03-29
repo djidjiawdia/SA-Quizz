@@ -62,3 +62,18 @@
         }
         return $players;
     }
+
+    function topScores(){
+        $players = getPlayers();
+        for($i=0; $i<sizeof($players); $i++){
+            for($j=$i+1; $j<sizeof($players); $j++){
+                if((int)$players[$i]['score'] < (int)$players[$j]['score']){
+                    $svg = $players[$i];
+                    $players[$i] = $players[$j];
+                    $players[$j] = $svg;
+                }
+            }
+        }
+        $n = (sizeof($players) < 5)?sizeof($players):5;
+        return array_slice($players, 0, $n);
+    }

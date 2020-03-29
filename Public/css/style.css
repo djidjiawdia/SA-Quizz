@@ -98,7 +98,9 @@ header h1{
     color: white;
 }
 
-.card-header h1{
+.card-header h2{
+    width: 60%;
+    text-align: center;
     text-transform: uppercase;
 }
 
@@ -303,6 +305,7 @@ input[type='file']{
 }
 
 .profil-joueur{
+    width: 10%;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -390,6 +393,7 @@ ul li a{
 
 .listeJ{
     width: 70%;
+    padding: 20px 20px 10px 20px;
 }
 
 .listeJ h1{
@@ -398,7 +402,7 @@ ul li a{
     text-align: center;
 }
 
-table{
+.listeJ table{
     width: 100%;
     border: 1px solid #51BFD0;
     border-radius: 5%;
@@ -406,7 +410,7 @@ table{
     color: #8E8071;
 }
 
-table thead td{
+.listeJ table thead td{
     font-size: 1.2rem;
     font-weight: bold;
 }
@@ -420,11 +424,13 @@ table thead td{
 
 .creerQ{
     width: 100%;
+    padding: 30px 10px;
 }
 
 .creerQ h1{
     color: #51BFD0;
     text-transform: uppercase;
+    padding: 0 30px 10px 30px;
 }
 
 .border{
@@ -652,13 +658,15 @@ input:focus, textarea:focus, select:focus {
 .interface-joueur{
     background: white;
     border-radius: 12px;
-    padding: 6px;
+    padding: 16px;;
+    height: 100%;
 }
 
 .interfaceForm{
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
+    justify-content: space-between;
+    min-height: 460px;
 }
 
 .interface-input{
@@ -668,6 +676,7 @@ input:focus, textarea:focus, select:focus {
 }
 
 .interface-txtarea{
+    height: 90px;
     text-align: center;
     margin-bottom: 10px;
     border-bottom: 1px solid #51BFD0;
@@ -706,26 +715,64 @@ input:focus, textarea:focus, select:focus {
 }
 
 .tab-score{
+    /* width: 300px; */
+    padding: 20px;
+}
+
+.tab-score-headers{
+    display: flex;
+    justify-content: space-between;
+}
+
+.tab-header{
+    width: 100%;
+    height: 60px;
+    border: none;
+    padding: 1rem;
+    color: #51BFD0;
+    background: transparent;
+    outline: none;
+    border-top-right-radius: 5px;
+    border-top-left-radius: 5px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.tab-header.active {
+    color: #605C54;
+    background-color: #fff;
+    box-shadow: 0px -4px 4px 2px rgba(0,0,0,.1);
+}
+
+.tab-contents{
+    top: 75px;
+    background-color: #fff;
+    height: 360px;
+    border-radius: 0 0 5px 5px;
+    box-shadow: 0 3px 8px 5px rgba(0,0,0,.1), 0 5px 10px rgba(0,0,0,.1);
+}
+
+.tab-content {
+    padding: 1rem;
+    display: none;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+
+.tab-content.is-visible {
     display: flex;
     flex-direction: column;
-    /* justify-content: center; */
-    /* align-items: center; */
-    margin: 10px;
 }
 
-.menu-tab-score{
-    width: 100%;
+.tab-player{
     display: flex;
-    justify-content: space-evenly;
+    justify-content: space-between;
+    align-items: center;
 }
 
-.score-body{
-    box-shadow: -1px 0 3px 1px rgba(0,0,0,0.3);
-}
-
-.btn-score{
-    width: 50%;
-    height: 50px;
-    background: none;
-    border: none;
+.tab-player .score{
+    width: 25%;
+    text-align: center;
+    border-bottom: 4px solid;
+    margin-bottom: 16px;
 }

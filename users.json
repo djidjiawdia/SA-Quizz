@@ -1,1 +1,74 @@
-[{"nom":"Diaw","prenom":"Djiadji","login":"jahjii","password":"Test1234","profil":"\/sa_quiz\/uploads\/jahjii.jpeg","score":0,"role":"admin"},{"nom":"Guiss\u00e9","prenom":"Isma\u00efla Mbaye","login":"coolblack","password":"Yassam94","profil":"\/sa_quiz\/uploads\/coolblack.jpg","score":0,"role":"admin"},{"nom":"Ciss\u00e9","prenom":"Samba","login":"samPeuzi","password":"Samba123","profil":"\/sa_quiz\/uploads\/samPeuzi.jpg","score":0,"role":"admin"},{"nom":"Ndiaye","prenom":"Moussa","login":"moise94","password":"Joueur1","profil":"\/sa_quiz\/uploads\/moise94.jpg","score":"16","role":"joueur"}]
+[
+    {
+        "nom": "Diaw",
+        "prenom": "Djiadji",
+        "login": "jahjii",
+        "password": "Test1234",
+        "profil": "/sa_quiz/uploads/jahjii.jpeg",
+        "score": 0,
+        "role": "admin"
+    },
+    {
+        "nom": "Guissé",
+        "prenom": "Ismaïla Mbaye",
+        "login": "coolblack",
+        "password": "Yassam94",
+        "profil": "/sa_quiz/uploads/coolblack.jpg",
+        "score": 0,
+        "role": "admin"
+    },
+    {
+        "nom": "Cissé",
+        "prenom": "Samba",
+        "login": "samPeuzi",
+        "password": "Samba123",
+        "profil": "/sa_quiz/uploads/samPeuzi.jpg",
+        "score": 0,
+        "role": "admin"
+    },
+    {
+        "nom": "Ndiaye",
+        "prenom": "Moussa",
+        "login": "moise94",
+        "password": "Joueur1",
+        "profil": "/sa_quiz/uploads/moise94.jpg",
+        "score": "16",
+        "role": "joueur"
+    },
+    {
+        "nom": "Diop",
+        "prenom": "Ngoné",
+        "login": "ngoDiaba",
+        "password": "Joueur2",
+        "profil": "/sa_quiz/uploads/ngoDiaba.jpg",
+        "score": "20",
+        "role": "joueur"
+    },
+    {
+        "nom": "Guissé",
+        "prenom": "Pape Sidy",
+        "login": "papesidy",
+        "password": "Psg2020",
+        "profil": "/sa_quiz/uploads/papesidy.jpg",
+        "score": "10",
+        "role": "joueur"
+    },
+    {
+        "nom": "Sène",
+        "prenom": "Martin P",
+        "login": "martinho",
+        "password": "Joueur4",
+        "profil": "/sa_quiz/uploads/martinho.jpg",
+        "score": "22",
+        "role": "joueur"
+    },
+    {
+        "nom": "Samb",
+        "prenom": "Boubacar",
+        "login": "boobsJunior",
+        "password": "Joueur5",
+        "profil": "/sa_quiz/uploads/boobsJunior.jpg",
+        "score": "24",
+        "role": "joueur"
+    }
+]

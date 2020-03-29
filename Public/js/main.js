@@ -490,19 +490,19 @@ if(interfaceForm != null){
     let currentTab = 0;
     let check = true;
     const tabEls = interfaceForm.querySelectorAll('.tabInterface');
-
+    
     interfaceForm.addEventListener('submit', e => {
         e.preventDefault();
         if(currentTab >= tabEls.length){
             document.cookie = "score="+score;
             location.replace("/sa_quiz/pages/joueur/interface_joueur.php?terminer");
-
+            
         }
     })
-
+    
     showCurrent = (current) => {
         tabEls[current].style.display = 'block';
-
+        
         if(current == 0){
             btnPrev.style.display = 'none';
             btnPrev.parentElement.style.justifyContent = "flex-end";
@@ -518,7 +518,7 @@ if(interfaceForm != null){
             btnNext.innerHTML = 'Suivant';
         }
     }
-
+    
     btnNext.addEventListener('click', () => {
         tabEls[currentTab].style.display = 'none';
         if(tabs[currentTab].typeRep === 'texte'){
@@ -537,14 +537,14 @@ if(interfaceForm != null){
         check = true;
         showCurrent(currentTab);
     });
-
+    
     btnPrev.addEventListener('click', () => {
         check = false;
         tabEls[currentTab].style.display = '';
         currentTab--;
         showCurrent(currentTab);
     });
-
+    
     verifierRep = () => {
         // This function deals with validation of the form fields
         const inputEl = tabEls[currentTab].querySelectorAll('input[id=resp]:checked');
@@ -556,14 +556,14 @@ if(interfaceForm != null){
             let checkboxesChecked = [];
             for (var i=0; i<inputEl.length; i++){
                 if (inputEl[i].checked) {
-                   checkboxesChecked.push(inputEl[i].value);
+                    checkboxesChecked.push(inputEl[i].value);
                 }
             }
             return tabs[currentTab].repC.join() == checkboxesChecked.join();
         }
         
     }
-
+    
     updateForm = (n) => {
         const inputEl = tabEls[n].querySelectorAll('#resp');
         const inputTextEl = tabEls[currentTab].querySelector('input[id=repText]');
@@ -577,6 +577,32 @@ if(interfaceForm != null){
     }
 
     showCurrent(currentTab);
-
+    
 }
 
+/************************ SCORES PAGINATION ************************/
+const btns = document.querySelectorAll('[data-id]');
+
+if(btns != null){
+    let currentTab = document.querySelector('.is-visible');
+    let currentTabButton = document.querySelector('.active');
+    btns.forEach(el => {
+        el.addEventListener('click', () => {
+            const id = el.getAttribute('data-id')
+            const tab = document.querySelector(`#${id}`)
+            if (currentTab == tab) {
+                return false;
+            }
+            el.classList.add('active')
+            if (currentTab) {
+                currentTab.classList.remove('is-visible')
+            }
+            if (currentTabButton) {
+                currentTabButton.classList.remove('active')
+            }
+            currentTabButton = el;
+            currentTab = tab;
+            tab.classList.add('is-visible');
+        });
+    })
+}

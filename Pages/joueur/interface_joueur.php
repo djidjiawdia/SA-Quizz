@@ -7,6 +7,8 @@
     }else if($_SESSION['user']['role'] === "admin"){
         header('location:/sa_quiz/pages/admin/accueil_admin.php');
     }
+
+    $tabColor = ['#50DAC2', '#88F6F4', '#F8B106', '#EF7E05', '#EEEEEE'];
     $n = getNbrQuestion()['nbrQuest'];
     $questions = interfaceQuestions();
 
@@ -30,12 +32,9 @@
     <div class="card-header">
         <div class="profil-joueur">
             <img class="icon-profil-joueur" src="<?= $_SESSION['user']['profil'] ?>" alt="Avatar">
-            <div class="nom-joueur">
-                <h5 class="prenom"><?= $_SESSION['user']['prenom']; ?></h5>
-                <h5 class="nom"><?= $_SESSION['user']['nom']; ?></h5>
-            </div>
+            <h5 class=""><?= $_SESSION['user']['prenom'].' <span style="text-transform:uppercase;">'.$_SESSION['user']['nom'].'</span>' ?></h5>
         </div>
-        <h1>Créer et paramétrer vos quizz</h1>
+        <h2>BIENVENUE SUR LA PLATEFORME DE JEU DE QUIZZ<br>JOUER ET TESTER VOTRE NIVEAU DE CULTURE GÉNÉRALE</h2>
         <a href="/sa_quiz/controllers/userCtrl?deconnexion" id="deconnexion">Déconnexion</a>
     </div>
     <div class="card-body">
@@ -91,17 +90,24 @@
             </div>
             <div class="col-sm">
                 <div class="tab-score">
-                    <div class="menu-tab-score">
-                        <button class="btn-score">Top scores</button>
-                        <button class="btn-score">Mon meilleur score</button>
+                    <div class="tab-score-headers">
+                        <button class="tab-header active" data-id="top-score">Top scores</button>
+                        <button class="tab-header" data-id="my-score">Mon meilleur score</button>
                     </div>
-                    <div class="score-body">
-                        <div class="top-score">
-                            <p>hjxgfchbkbjc</p>
-                            <p>hjxgfchbkbjc</p>
-                            <p>hjxgfchbkbjc</p>
-                            <p>hjxgfchbkbjc</p>
-                            <p>hjxgfchbkbjc</p>
+                    <div class="tab-contents">
+                        <div class="tab-content is-visible" id="top-score">
+                            <?php foreach(topScores() as $k => $score): ?>
+                            <div class="tab-player">
+                                <h3><?= $score['prenom'].' <span style="text-transform:uppercase;">'.$score['nom'].'</span>' ?></h3>
+                                <h3 class="score" style="border-color:<?= $tabColor[$k]; ?>"><?= $score['score'].' pts' ?></h3>
+                            </div>
+                            <?php endforeach; ?>
+                        </div>
+                        <div class="tab-content" id="my-score">
+                            <div class="tab-player">
+                                <h3><?= $_SESSION['user']['prenom'].' <span style="text-transform:uppercase;">'.$_SESSION['user']['nom'].'</span>' ?></h3>
+                                <h3 class="score" style="border-color:<?= $tabColor[0]; ?>"><?= $_SESSION['user']['score'].' pts' ?></h3>
+                            </div>
                         </div>
                     </div>
                 </div>
