@@ -34,8 +34,11 @@
             <img class="icon-profil-joueur" src="<?= $_SESSION['user']['profil'] ?>" alt="Avatar">
             <h5 class=""><?= $_SESSION['user']['prenom'].' <span style="text-transform:uppercase;">'.$_SESSION['user']['nom'].'</span>' ?></h5>
         </div>
-        <h2>BIENVENUE SUR LA PLATEFORME DE JEU DE QUIZZ<br>JOUER ET TESTER VOTRE NIVEAU DE CULTURE GÉNÉRALE</h2>
-        <a href="/sa_quiz/controllers/userCtrl?deconnexion" id="deconnexion">Déconnexion</a>
+        <h2>BIENVENUE SUR LA PLATEFORME DE JEU DE QUIZZ JOUER ET TESTER VOTRE NIVEAU DE CULTURE GÉNÉRALE</h2>
+        <a class="logout-text" href="/sa_quiz/controllers/userCtrl?deconnexion" id="deconnexion">Déconnexion</a>
+        <a class="logout-img" href="/sa_quiz/controllers/userCtrl?deconnexion" id="deconnexion">
+            <img src="/sa_quiz/public/images/logout.svg">
+        </a>
     </div>
     <div class="card-body">
         <div class="interface-joueur row">

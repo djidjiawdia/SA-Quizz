@@ -135,7 +135,7 @@ if(liEl != null){
 
 /************************ DECONNEXION ************************/
 const decon = document.getElementById('deconnexion');
-
+console.log(decon)
 if(decon != null){
     decon.addEventListener("click", e => {
         if(!confirm('Voulez vous se deconnecter ?')){

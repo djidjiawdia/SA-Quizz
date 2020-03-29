@@ -87,7 +87,7 @@ header h1{
     color: white;
 }
 
-.card-header a{
+.card-header .logout-text{
     height: 40px;
     width: 150px;
     background-color: #14F7E7;
@@ -98,8 +98,19 @@ header h1{
     color: white;
 }
 
+.card-header .logout-img{
+    display: none;
+    width: 35px;
+    height: 35px;
+}
+
+.card-header .logout-img img{
+    width: 100%;
+    height: 100%;
+}
+
 .card-header h2{
-    width: 60%;
+    width: 70%;
     text-align: center;
     text-transform: uppercase;
 }
@@ -247,6 +258,7 @@ header h1{
     margin: 10px 0 10px 0;
     width: 100%;
     display: flex;
+    align-items: center;
     justify-content: space-between;
 }
 
@@ -305,7 +317,7 @@ input[type='file']{
 }
 
 .profil-joueur{
-    width: 10%;
+    width: 15%;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -623,6 +635,7 @@ input:focus, textarea:focus, select:focus {
     display: flex;
     justify-content: flex-start;
     align-items: center;
+    margin-bottom: 8px;
 }
 
 .listeQ-Choix{
@@ -636,7 +649,7 @@ input:focus, textarea:focus, select:focus {
 }
 
 .respText{
-    width: 420px;
+    width: 100%;
     height: 40px;
     font-weight: bold;
     font-size: 1rem;
@@ -775,4 +788,270 @@ input:focus, textarea:focus, select:focus {
     text-align: center;
     border-bottom: 4px solid;
     margin-bottom: 16px;
+}
+
+
+
+
+
+
+
+@media screen and (max-width: 480px){
+    .logo{
+        height: 60px;
+    }
+    
+    header h1{
+        font-size: 1.5rem;
+    }
+
+    .card-header{
+        height: 70px;
+    }
+
+    .icon-profil-joueur{
+        width: 50px;
+        height: 50px;
+    }
+
+    .profil-joueur h5{
+        display: none;
+    }
+     
+    .card-header .logout-text{
+        display: none;
+    }
+
+    .card-header .logout-img{
+        display: block;
+    }
+    
+    .card-header h2{
+        width: 70%;
+        font-size: .7rem;
+    }
+
+    .form-group-btn a{
+        font-size: 0.75rem;
+    }
+
+    .btn-lg{
+        height: 40px;
+        width: 120px;
+        font-size: 0.8rem;
+    }
+
+    .col-md, .col-sm{
+        width: 100%;
+    }
+
+    .admin-page{
+        padding: 15px 0 15px 0;
+    }
+
+    .nbrQuestF label{
+        font-size: .8rem;
+    }
+    
+    .nbrQuestF button{
+        width: 30px;
+        height: 30px;
+    }
+    
+    .nbrQuestF input{
+        width: 40px;
+        height: 30px;
+    }
+
+    h1{
+        font-size: 1.3rem;
+    }
+
+    h2{
+        font-size: 1.15rem;
+    }
+
+    .interface-label, .listeQ-label, h3{
+        font-size: 1rem;
+    }
+
+    .interface-Choix{
+        width: 20px;
+        height: 20px;
+    }
+
+    .respText{
+        height: 30px;
+    }
+
+    .avatar{
+        margin: 10px;
+    }
+    
+    .avatar img{
+        width: 150px;
+        height: 150px;
+    }
+
+    .listeJ{
+        width: 100%;
+    }
+
+    .form-textarea{
+        height: 140px;
+    }
+
+    .tab-score{
+        padding: 20px 0 10px 0;
+    }
+    
+}
+
+@media screen and (min-width: 480px) and (max-width: 780px){
+    
+    header h1{
+        font-size: 2rem;
+    }
+
+    .card-header{
+        height: 80px;
+    }
+
+    .icon-profil-joueur{
+        width: 50px;
+        height: 50px;
+    }
+
+    .profil-joueur h5{
+        display: none;
+    }
+     
+    .card-header .logout-text{
+        display: none;
+    }
+
+    .card-header .logout-img{
+        display: block;
+    }
+    
+    .card-header h2{
+        width: 70%;
+        font-size: 1rem;
+    }
+
+    .col-md, .col-sm{
+        width: 100%;
+    }
+
+    .admin-page{
+        padding: 15px 0 15px 0;
+    }
+
+    .nbrQuestF label{
+        font-size: 1.25rem;
+    }
+    
+    h1{
+        font-size: 1.75rem;
+    }
+
+    h2{
+        font-size: 1.45rem;
+    }
+
+    .interface-label, .listeQ-label, h3{
+        font-size: 1.5rem;
+    }
+
+    .interface-Choix{
+        width: 30px;
+        height: 30px;
+    }
+
+    .respText{
+        height: 40px;
+    }
+
+    .avatar{
+        margin: 10px;
+    }
+    
+    .avatar img{
+        width: 150px;
+        height: 150px;
+    }
+
+    .listeJ{
+        width: 100%;
+    }
+
+    .form-textarea{
+        height: 140px;
+    }
+
+    .tab-score{
+        padding: 20px 0 10px 0;
+    }
+    
+}
+
+@media screen and (min-width: 780px) and (max-width: 1060px){
+
+    .icon-profil-joueur{
+        width: 50px;
+        height: 50px;
+    }
+    
+    .card-header h2{
+        width: 60%;
+        font-size: 1.2rem;
+    }
+
+    .avatar img{
+        width: 180px;
+        height: 180px;
+    }
+
+    .avatar h2{
+        font-size: 1.3rem;
+    }
+
+    .col-md{
+        width: 60%;
+    } 
+    .col-sm{
+        width: 40%;
+    }
+
+    .nbrQuestF label{
+        font-size: 1.25rem;
+    }
+    
+    h1{
+        font-size: 1.75rem;
+    }
+
+    h2{
+        font-size: 1.45rem;
+    }
+
+    .interface-label, .listeQ-label, h3{
+        font-size: 1.5rem;
+    }
+
+    .listeJ{
+        width: 80%;
+    }
+
+    .form-textarea{
+        height: 140px;
+    }
+
+    .tab-score{
+        padding: 20px 10px 10px 20px;
+    }
+    
+    .inputavatar label{
+        font-size: 1rem;
+    }
 }

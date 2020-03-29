@@ -9,8 +9,11 @@
 
 <div class="card card-lg">
     <div class="card-header">
-        <h1>Créer et paramétrer vos quizz</h1>
-        <a href="/sa_quiz/controllers/userCtrl?deconnexion" id="deconnexion">Déconnexion</a>
+        <h2>Créer et paramétrer vos quizz</h2>
+        <a class="logout-text" href="/sa_quiz/controllers/userCtrl?deconnexion" id="deconnexion">Déconnexion</a>
+        <a class="logout-img" href="/sa_quiz/controllers/userCtrl?deconnexion" id="deconnexion">
+            <img src="/sa_quiz/public/images/logout.svg">
+        </a>
     </div>
     <div class="card-body row">
         <div class="col-sm">
